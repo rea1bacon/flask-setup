@@ -13,7 +13,7 @@ source venv/bin/activate
 ```
 For windows
 ```powershell
-venv\bin\activate.bat
+venv\scripts\activate.bat
 ```
 
 ```bash

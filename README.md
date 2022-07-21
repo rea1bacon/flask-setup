@@ -22,7 +22,7 @@ cd src/
 python3 main.py # Or py main.py for windows
 ```
 
-## If you can't make
+## If you can't make 
 
 ```bash
 pip install -r requirements.txt

@@ -1,3 +1,3 @@
 init:
-    pip install -r requirements.txt
-	echo "debug=true" > .env
+	pip install -r requirements.txt;
+	bash scripts/startup.sh

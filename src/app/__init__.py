@@ -11,6 +11,7 @@ DB_NAME = config("db")
 def StartApp():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = config("secret")
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     if DB_TYPE == "mysql":
         app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://" + \
             config('dbc')+"/"+DB_NAME
@@ -21,7 +22,10 @@ def StartApp():
         print("Error : unknown type of database :" + DB_TYPE)
     db.init_app(app)
     from .HomeView import Home
+    from .ApiView import Api
     app.register_blueprint(Home, url_prefix='/')
+    app.register_blueprint(Api, url_prefix='/api')
+
     from .models import Test
 
     CreateDB(app)
@@ -30,6 +34,6 @@ def StartApp():
 
 
 def CreateDB(app):
-    if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
-        create_database(app.config['SQLALCHEMY_DATABASE_URI'])
+    # if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
+    #   create_database(app.config['SQLALCHEMY_DATABASE_URI'])
     db.create_all(app=app)

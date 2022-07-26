@@ -1,6 +1,6 @@
 class Api {
-  constructor(endpoint) {
-    this.endpoint = endpoint;
+  constructor(url) {
+    this.url = url;
   }
 
   Respjson(obj) {
@@ -8,7 +8,7 @@ class Api {
   }
 
   Fetch({
-    target,
+    endpoint,
     method = "GET",
     funct,
     typef,
@@ -17,9 +17,14 @@ class Api {
     funcerror = false,
   }) {
     var Fheaders = new Headers(headers);
-    args.headers = Fheaders;
+    args.headers = {
+      "Access-Control-Allow-Origin": "*",
+      Accept: "application/json",
+    };
+    // args.headers = Fheaders;
     args.method = method;
-    fetch(this.endpoint + target, args)
+    args.mode = "cors";
+    fetch(this.url + endpoint, args)
       .then((resp) => {
         if (!resp.ok) {
           throw new Error("response code " + resp.status);
@@ -34,7 +39,7 @@ class Api {
           funcerror(error);
         } else {
           console.log({
-            fetch: target,
+            fetch: endpoint,
             type: "failure",
             message: "A problem occurred during the request : " + error,
           });

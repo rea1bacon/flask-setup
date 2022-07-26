@@ -1,4 +1,5 @@
-const api = new Api(window.location.origin + "/api/v1/");
+const host = "flaskezs.com";
+const api = new Api(window.location.protocol + "//api." + host + "/v1/");
 
 function TestApp(resp) {
   let Title = document.getElementById("Title");
@@ -17,7 +18,7 @@ function TestAppError(error) {
 document.addEventListener("DOMContentLoaded", function () {
   if (window.fetch) {
     api.Fetch({
-      target: "test",
+      endpoint: "test",
       method: "GET",
       funct: TestApp,
       typef: api.Respjson,

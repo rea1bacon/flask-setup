@@ -17,11 +17,9 @@ class Api {
     funcerror = false,
   }) {
     var Fheaders = new Headers(headers);
-    args.headers = {
-      "Access-Control-Allow-Origin": "*",
-      Accept: "application/json",
-    };
-    // args.headers = Fheaders;
+    Fheaders.append("Access-Control-Allow-Origin", "*");
+    Fheaders.append("Accept", "application/json");
+    args.headers = Fheaders;
     args.method = method;
     args.mode = "cors";
     fetch(this.url + endpoint, args)

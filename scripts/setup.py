@@ -32,4 +32,4 @@ TestMessage = Test(
 db.session.add(TestMessage)
 db.session.commit()
 print("[+] Row commited !")
-print("Start server with src/app.py and access it to http://flaskezs.com/")
+print("Start server with src/app.py and access it to http://flaskezs.com:5000/")

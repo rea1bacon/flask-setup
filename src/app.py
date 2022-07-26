@@ -25,4 +25,4 @@ load_dotenv()
 
 if __name__ == '__main__':
     app = StartApp()
-    app.run(host="localhost", port=80)
+    app.run(host="localhost", port=5000)

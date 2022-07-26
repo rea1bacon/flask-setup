@@ -7,7 +7,7 @@ class Config(object):
     CSRF_ENABLED = True
     SECRET_KEY = config('secret')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SERVER_NAME = "flaskezs.com"
+    SERVER_NAME = "flaskezs.com:5000"
 
 
 class ProductionConfig(Config):

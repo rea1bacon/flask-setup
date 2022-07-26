@@ -1,4 +1,4 @@
-const host = "flaskezs.com";
+const host = "flaskezs.com:5000";
 const api = new Api(window.location.protocol + "//api." + host + "/v1/");
 
 function TestApp(resp) {

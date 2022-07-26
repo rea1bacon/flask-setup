@@ -34,7 +34,7 @@ db.session.add(TestMessage)
 db.session.commit()
 print("[+] Row commited !")
 hostname = input(
-    "[+] Enter the hostname of your server (ex: testwebsite.com: ")
+    "[+] Enter the hostname of your server (ex: testwebsite.com:) : ")
 print("[+] Adding hostname to hosts file...")
 # Add hostname to hosts file
 # Edit /etc/hosts on linux and C:\Windows\System32\Drivers\etc\hosts on Windows

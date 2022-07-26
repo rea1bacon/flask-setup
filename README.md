@@ -19,7 +19,7 @@ venv\scripts\activate.bat
 ```bash
 sudo make
 cd src/
-python3 main.py # Or py main.py for windows
+python3 app.py # Or py app.py for windows
 ```
 
 ## If you can't make 

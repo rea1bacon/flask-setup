@@ -29,8 +29,3 @@ pip install -r requirements.txt
 bash scripts/setup.sh
 py scripts/setup.py
 ```
-And change host file by adding this two lines :
-```
-127.0.0.1 flaskezs.com
-127.0.0.1 api.flaskezs.com
-```

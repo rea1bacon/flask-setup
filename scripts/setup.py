@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from decouple import config
 import pathlib
+import os
 
 app = Flask(__name__)
 
@@ -32,4 +33,21 @@ TestMessage = Test(
 db.session.add(TestMessage)
 db.session.commit()
 print("[+] Row commited !")
-print("Start server with src/app.py and access it to http://flaskezs.com:5000/")
+hostname = input(
+    "[+] Enter the hostname of your server (ex: testwebsite.com: ")
+print("[+] Adding hostname to hosts file...")
+# Add hostname to hosts file
+# Edit /etc/hosts on linux and C:\Windows\System32\Drivers\etc\hosts on Windows
+if os.name == "nt":
+    with open("C:\\Windows\\System32\\Drivers\\etc\\hosts", "a") as f:
+        f.write("\n127.0.0.1 "+hostname+"\n127.0.0.1 api."+hostname+"\n")
+        f.close()
+elif os.name == "posix":
+    with open("/etc/hosts", "a") as f:
+        f.write("\n127.0.0.1 "+hostname+"\n127.0.0.1 api."+hostname+"\n")
+        f.close()
+# Add hostname to .env file
+with open(".env", "a") as f:
+    f.write("\nSERVER_NAME="+hostname)
+    f.close()
+print(f"Start server with src/app.py and access it to http://{hostname}:5000/")

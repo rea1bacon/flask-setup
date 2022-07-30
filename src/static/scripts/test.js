@@ -1,5 +1,11 @@
-const host = "flaskezs.com:5000";
-const api = new Api(window.location.protocol + "//api." + host + "/v1/");
+var hostname = document.location.hostname;
+function reversestr(str) {
+  return str.split("").reverse().join("");
+}
+hostname = reversestr(reversestr(hostname).split(".").slice(0, 2).join("."));
+const api = new Api(
+  window.location.protocol + "//api." + hostname + ":5000/v1/"
+);
 
 function TestApp(resp) {
   let Title = document.getElementById("Title");
